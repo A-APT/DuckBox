@@ -1,13 +1,12 @@
 import React from 'react';
-import { Text } from "react-native";
+import DidStackNavigator from './src/navigation/stack/DidStackNavigator';
 
-const App = () => {
-
-    return(
+function App() {
+    return (
         <>
-            <Text>Test</Text>
+            <DidStackNavigator />
         </>
-    )
+    );
 }
 
 export default App;
