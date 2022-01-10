@@ -1,17 +1,26 @@
 import React from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import { TextInput, StyleSheet, Text } from 'react-native';
 
 import colors from '../../theme/Colors';
+import { type } from '../../theme/Fonts';
 
-function InputBox({ playsholder, text, setText }) {
+function InputBox({ playsholder, text, setText, isCorrect, setCorrect, correctText }) {
+    const onEmailChange = (e) => {
+        setCorrect(true);
+        setText(e)
+    };
+
     return (
-        <TextInput
-            style={styles.container}
-            placeholder= {playsholder}
-            placeholderTextColor={colors.darkGray}
-            onChangeText={setText}
-            value={text}
-        />
+        <>
+            <TextInput
+                style={styles.container}
+                placeholder={playsholder}
+                placeholderTextColor={colors.darkGray}
+                onChangeText={onEmailChange}
+                value={text}
+            />
+            {isCorrect ? null : <Text style={styles.container2}>{correctText}</Text>}
+        </>
     );
 }
 
@@ -23,6 +32,13 @@ const styles = StyleSheet.create({
         padding: 16,
         borderColor: colors.sub1,
         borderWidth: 2,
+        fontFamily: type.Roboto_Regular,
+    },
+    container2: {
+        textAlign: 'right',
+        fontSize: 14,
+        color: colors.main2,
+        fontFamily: type.Roboto_Regular,
     }
 });
 

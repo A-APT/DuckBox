@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import colors from '../../../../theme/Colors';
+import {type} from '../../../../theme/Fonts';
 
 const Agree = ({ check1, setCheck1, check2, setCheck2 }) => {
     return (
@@ -34,10 +35,12 @@ const styles = StyleSheet.create({
         fontSize:14,
         color: colors.main,
         marginLeft: 8,
+        fontFamily: type.Roboto_Regular,
     },
     font2:{
         fontSize:14,
-        color: colors.black
+        color: colors.black,
+        fontFamily: type.Roboto_Regular,
     }
 });
 
