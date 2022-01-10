@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {ScrollView, StyleSheet, Image, View, Text} from 'react-native';
 import colors from '../../../theme/Colors';
 import {type} from '../../../theme/Fonts';
 import TitleText from '../../common/TitleText';
 import BottomButton from '../../common/BottomButton';
-import { clearErrors } from 'react-native/Libraries/LogBox/Data/LogBoxData';
 
 const CheckStudentCardScreen = () => {
-    const [email, setEmail] = useState('');
-    const [check1, setCheck1] = useState(false);
-    const [check2, setCheck2] = useState(false);
-    const [isCorrect, setCorrect] = useState(true);
-
-    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
-
     return (
         <>
             <ScrollView style={styles.container}>
