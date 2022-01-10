@@ -5,6 +5,7 @@ import CheckEmailScreen from '../../containers/user/did/CheckEmailScreen';
 import EmailCodeScreen from '../../containers/user/did/EmailCodeScreen';
 import TermsOfUseScreen from '../../containers/user/did/TermsOfUseScreen';
 import PolicyScreen from '../../containers/user/did/PolicyScreen';
+import CheckStudentCardScreen from '../../containers/user/did/CheckStudentCardScreen';
 import Colors from '../../theme/Colors';
 import { StyleSheet } from 'react-native';
 
@@ -27,7 +28,19 @@ const DidStackNavigator = () => {
                         },
                     })}
                 />
-                <DidStack.Screen name="EmailCodeScreen" component={EmailCodeScreen} />
+                <DidStack.Screen 
+                    name="EmailCodeScreen" 
+                    component={EmailCodeScreen}
+                    options={({ navigation }) => ({
+                        headerStyle: styles.headerStyle,
+                        title: '이메일 인증하기',
+                        headerTintColor: Colors.black,
+                        headerTitleAlign: 'center',
+                        headerTitleStyle: {
+                            fontSize: 18,
+                        },
+                    })}
+                    />
                 <DidStack.Screen
                     name="TermsOfUseScreen"
                     component={TermsOfUseScreen}
@@ -47,6 +60,19 @@ const DidStackNavigator = () => {
                     options={({ navigation }) => ({
                         headerStyle: styles.headerStyle,
                         title: '개인정보처리방침',
+                        headerTintColor: Colors.black,
+                        headerTitleAlign: 'center',
+                        headerTitleStyle: {
+                            fontSize: 18,
+                        },
+                    })}
+                    />
+                <DidStack.Screen 
+                    name="CheckStudentCardScreen" 
+                    component={CheckStudentCardScreen}
+                    options={({ navigation }) => ({
+                        headerStyle: styles.headerStyle,
+                        title: '학생증 인증하기',
                         headerTintColor: Colors.black,
                         headerTitleAlign: 'center',
                         headerTitleStyle: {
