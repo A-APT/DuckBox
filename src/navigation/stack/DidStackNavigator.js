@@ -6,6 +6,8 @@ import EmailCodeScreen from '../../containers/user/did/EmailCodeScreen';
 import TermsOfUseScreen from '../../containers/user/did/TermsOfUseScreen';
 import PolicyScreen from '../../containers/user/did/PolicyScreen';
 import CheckStudentCardScreen from '../../containers/user/did/CheckStudentCardScreen';
+import StudentCardResultScreen from '../../containers/user/did/StudenctCardResultScreen';
+
 import Colors from '../../theme/Colors';
 import { StyleSheet } from 'react-native';
 
@@ -70,6 +72,19 @@ const DidStackNavigator = () => {
                 <DidStack.Screen 
                     name="CheckStudentCardScreen" 
                     component={CheckStudentCardScreen}
+                    options={({ navigation }) => ({
+                        headerStyle: styles.headerStyle,
+                        title: '학생증 인증하기',
+                        headerTintColor: Colors.black,
+                        headerTitleAlign: 'center',
+                        headerTitleStyle: {
+                            fontSize: 18,
+                        },
+                    })}
+                    />
+                <DidStack.Screen 
+                    name="StudentCardResultScreen" 
+                    component={StudentCardResultScreen}
                     options={({ navigation }) => ({
                         headerStyle: styles.headerStyle,
                         title: '학생증 인증하기',
