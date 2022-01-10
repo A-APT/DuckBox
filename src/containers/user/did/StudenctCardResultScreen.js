@@ -35,7 +35,7 @@ const StudentCardResultScreen = () => {
                     <SubButton text="재촬영하기" doFunction={ doFunction }/>
                 </View>
             </ScrollView>
-            <BottomButton text="인증하기" moveTo="StudentCardResultScreen" available={true} />
+            <BottomButton text="인증하기" moveTo="MoreInfoScreen" available={true} />
         </>
 
     );
