@@ -2,8 +2,11 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import colors from '../../../../theme/Colors';
 import {type} from '../../../../theme/Fonts';
+import { useNavigation } from '@react-navigation/native';
 
 const Agree = ({ check1, setCheck1, check2, setCheck2 }) => {
+    const navigateTo = useNavigation();
+
     return (
         <>
             <View style={styles.container}>
@@ -11,7 +14,7 @@ const Agree = ({ check1, setCheck1, check2, setCheck2 }) => {
                     style={styles.image}
                     onTouchEnd={() => {setCheck1(!check1);}}
                     source={check1 ? require('../../../../asset/icon/pressCheck.png') : require('../../../../asset/icon/check.png')} />
-                <Text style={styles.font1}>이용약관</Text>
+                <Text style={styles.font1} onTouchEnd={() => { navigateTo.navigate('TermsOfUseScreen'); }} >이용약관</Text>
                 <Text style={styles.font2}>에 동의합니다.</Text>
             </View>
             <View style={styles.container}>
@@ -19,7 +22,7 @@ const Agree = ({ check1, setCheck1, check2, setCheck2 }) => {
                     style={styles.image}
                     onTouchEnd={() => {setCheck2(!check2);}}
                     source={check2 ? require('../../../../asset/icon/pressCheck.png') : require('../../../../asset/icon/check.png')} />
-                <Text style={styles.font1}>개인정보처리방침</Text>
+                <Text style={styles.font1} onTouchEnd={() => { navigateTo.navigate('PolicyScreen'); }} >개인정보처리방침</Text>
                 <Text style={styles.font2}>에 동의합니다.</Text>
             </View>
         </>
