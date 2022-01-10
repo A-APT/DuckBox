@@ -22,7 +22,7 @@ const CheckStudentCardScreen = () => {
                 </View>
                 <View style={styles.container2}>
                     <Text style={styles.number}>3</Text>
-                    <Text style={styles.font2}>빛 반사에 주의하세요. 정보 확인이 어렵거나, 훼손/유효하지 않은 신분증은 거절됩니다.</Text>
+                    <Text style={styles.font2}>빛 반사에 주의하세요. 정보 확인이 어렵거나, 훼손/유효하지 않은 학생증은 거절됩니다.</Text>
                 </View>
             </ScrollView>
             <BottomButton text="인증하기" moveTo="StudentCardResultScreen" available={true}/>
