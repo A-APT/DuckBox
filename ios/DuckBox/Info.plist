@@ -51,5 +51,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>바코드 스캔을 위해 카메라 사용을 허용해주세요.</string>
 </dict>
 </plist>
