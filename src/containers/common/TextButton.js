@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import colors from '../../theme/Colors';
 import { type } from '../../theme/Fonts';
 
-function SubButton({ text, doFunction }) {
+function TextButton({ text, doFunction }) {
 
     return (
         <View style={styles.container}
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default SubButton;
+export default TextButton;

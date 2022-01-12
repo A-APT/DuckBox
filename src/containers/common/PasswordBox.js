@@ -4,7 +4,7 @@ import { TextInput, StyleSheet, Text } from 'react-native';
 import colors from '../../theme/Colors';
 import { type } from '../../theme/Fonts';
 
-function PasswordBox({ playsholder, text, setText, isCorrect, setCorrect, correctText }) {
+function PasswordBox({ playsholder, text, setText, isCorrect, setCorrect, warningText }) {
     const onEmailChange = (e) => {
         setCorrect(true);
         setText(e)
@@ -20,7 +20,7 @@ function PasswordBox({ playsholder, text, setText, isCorrect, setCorrect, correc
                 onChangeText={onEmailChange}
                 value={text}
             />
-            {isCorrect ? null : <Text style={styles.container2}>{correctText}</Text>}
+            {isCorrect ? null : <Text style={styles.container2}>{warningText}</Text>}
         </>
     );
 }

@@ -4,7 +4,7 @@ import colors from '../../../theme/Colors';
 import {type} from '../../../theme/Fonts';
 import InputBox from '../../common/InputBox';
 import TitleText from '../../common/TitleText';
-import SubButton from '../../common/SubButton';
+import TextButton from '../../common/TextButton';
 import BottomButton from '../../common/BottomButton';
 
 const EmailCodeScreen = () => {
@@ -30,10 +30,10 @@ const EmailCodeScreen = () => {
                 <TitleText text1={"이메일로 전송된"} text2={"코드를 입력하세요."} />
                 <Text style={styles.font1}>{email} 으로 코드를 전송했습니다.</Text>
                 <Text style={styles.font2}>인증코드는 최대 10분간 유효합니다.</Text>
-                <InputBox playsholder={"인증코드를 입력해주세요"} text={code} setText={setCode} isCorrect={isCorrect} setCorrect={setCorrect} correctText={"올바르지 않은 코드입니다."}/>
+                <InputBox playsholder={"인증코드를 입력해주세요"} text={code} setText={setCode} isCorrect={isCorrect} setCorrect={setCorrect} warningText={"올바르지 않은 코드입니다."}/>
                 <View style={styles.container2}>
                     <Text style={styles.font3}>인증코드를 받지 못하셨나요?</Text>
-                    <SubButton text="인증코드 재전송" doFunction={ doFunction }/>
+                    <TextButton text="인증코드 재전송" doFunction={ doFunction }/>
                 </View>
             </ScrollView>
             <BottomButton text="제출" moveTo="CheckStudentCardScreen" available={code} checkVariable={code} reg={reg} setCorrect={setCorrect}/>

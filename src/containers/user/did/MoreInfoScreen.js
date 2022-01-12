@@ -34,7 +34,7 @@ const MoreInfoScreen = () => {
         });
     };
 
-    const checkDepartMentList = () => {
+    const checkDepartmentList = () => {
         departmentList.map((item) =>{
             if(item === department){
                 setCorrectDepartment(true);
@@ -48,7 +48,7 @@ const MoreInfoScreen = () => {
         if(pwdReg.test(password)){
             if(password === rePassword){
                 checkDuplication();
-                checkDepartMentList();
+                checkDepartmentList();
                 if(isCorrectNickname&&isCorrectDepartment){
                     navigateTo.navigate("FinishCreateDidScreen");
                 }
@@ -65,13 +65,13 @@ const MoreInfoScreen = () => {
             <ScrollView style={styles.container}>
                 <TitleText text1={"마지막 단계입니다"} text2={"추가 정보를 입력해주세요"} />
                 <Text style={styles.font2}>비밀번호</Text>
-                <PasswordBox playsholder={"입력해주세요."} text={password} setText={setPassword} isCorrect={isCorrectPassword} setCorrect={setCorrectPassword} correctText={"8자 이상/ 하나 이상의 문자,숫자, 특수문자를 포함 필요"} />
+                <PasswordBox playsholder={"입력해주세요."} text={password} setText={setPassword} isCorrect={isCorrectPassword} setCorrect={setCorrectPassword} warningText={"8자 이상/ 하나 이상의 문자,숫자, 특수문자 포함 필요"} />
                 <Text style={styles.font1}>비밀번호 확인</Text>
-                <PasswordBox playsholder={"입력해주세요."} text={rePassword} setText={setRePassword} isCorrect={isCorrectRePassword} setCorrect={setCorrectRePassword} correctText={"비밀번호가 일치하지 않습니다."} />
+                <PasswordBox playsholder={"입력해주세요."} text={rePassword} setText={setRePassword} isCorrect={isCorrectRePassword} setCorrect={setCorrectRePassword} warningText={"비밀번호가 일치하지 않습니다."} />
                 <Text style={styles.font1}>닉네임</Text>
-                <InputBox playsholder={"입력해주세요."} text={nickname} setText={setNickname} isCorrect={isCorrectNickname} setCorrect={setCorrectNickname} correctText={"중복된 닉네임입니다."} />
+                <InputBox playsholder={"입력해주세요."} text={nickname} setText={setNickname} isCorrect={isCorrectNickname} setCorrect={setCorrectNickname} warningText={"중복된 닉네임입니다."} />
                 <Text style={styles.font1}>학과</Text>
-                <InputBox playsholder={"입력해주세요."} text={department} setText={setDepartment} isCorrect={isCorrectDepartment} setCorrect={setCorrectDepartment} correctText={"정확한 학과명을 입력해야합니다."} />
+                <InputBox playsholder={"입력해주세요."} text={department} setText={setDepartment} isCorrect={isCorrectDepartment} setCorrect={setCorrectDepartment} warningText={"정확한 학과명을 입력해야합니다."} />
             </ScrollView>
             <View style={password&&rePassword&&nickname&&department ? styles.buttonContainer : styles.pressButtonContainer}
                 onTouchEnd={() => { onCheckAvailablity() }}>

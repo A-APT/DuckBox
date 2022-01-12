@@ -4,7 +4,7 @@ import colors from '../../../theme/Colors';
 import { type } from '../../../theme/Fonts';
 import BottomButton from '../../common/BottomButton';
 import InputBox from '../../common/InputBox';
-import SubButton from '../../common/SubButton';
+import TextButton from '../../common/TextButton';
 
 const StudentCardResultScreen = () => {
     const [name, setName] = useState('');
@@ -32,7 +32,7 @@ const StudentCardResultScreen = () => {
                 <InputBox text={studentId} setText={setStudentId} isCorrect={isCorrect} setCorrect={setCorrect} />
                 <View style={styles.container3}>
                     <Text style={styles.font3}>인식이 제대로 되지 않았나요?</Text>
-                    <SubButton text="재촬영하기" doFunction={ doFunction }/>
+                    <TextButton text="재촬영하기" doFunction={ doFunction }/>
                 </View>
             </ScrollView>
             <BottomButton text="인증하기" moveTo="MoreInfoScreen" available={true} />
