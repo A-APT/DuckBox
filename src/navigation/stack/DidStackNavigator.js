@@ -32,8 +32,8 @@ const DidStackNavigator = () => {
                         },
                     })}
                 />
-                <DidStack.Screen 
-                    name="EmailCodeScreen" 
+                <DidStack.Screen
+                    name="EmailCodeScreen"
                     component={EmailCodeScreen}
                     options={({ navigation }) => ({
                         headerStyle: styles.headerStyle,
@@ -44,7 +44,7 @@ const DidStackNavigator = () => {
                             fontSize: 18,
                         },
                     })}
-                    />
+                />
                 <DidStack.Screen
                     name="TermsOfUseScreen"
                     component={TermsOfUseScreen}
@@ -58,8 +58,8 @@ const DidStackNavigator = () => {
                         },
                     })}
                 />
-                <DidStack.Screen 
-                    name="PolicyScreen" 
+                <DidStack.Screen
+                    name="PolicyScreen"
                     component={PolicyScreen}
                     options={({ navigation }) => ({
                         headerStyle: styles.headerStyle,
@@ -70,9 +70,9 @@ const DidStackNavigator = () => {
                             fontSize: 18,
                         },
                     })}
-                    />
-                <DidStack.Screen 
-                    name="CheckStudentCardScreen" 
+                />
+                <DidStack.Screen
+                    name="CheckStudentCardScreen"
                     component={CheckStudentCardScreen}
                     options={({ navigation }) => ({
                         headerStyle: styles.headerStyle,
@@ -83,9 +83,9 @@ const DidStackNavigator = () => {
                             fontSize: 18,
                         },
                     })}
-                    />
-                <DidStack.Screen 
-                    name="StudentCardResultScreen" 
+                />
+                <DidStack.Screen
+                    name="StudentCardResultScreen"
                     component={StudentCardResultScreen}
                     options={({ navigation }) => ({
                         headerStyle: styles.headerStyle,
@@ -96,9 +96,9 @@ const DidStackNavigator = () => {
                             fontSize: 18,
                         },
                     })}
-                    />
-                <DidStack.Screen 
-                    name="MoreInfoScreen" 
+                />
+                <DidStack.Screen
+                    name="MoreInfoScreen"
                     component={MoreInfoScreen}
                     options={({ navigation }) => ({
                         headerStyle: styles.headerStyle,
@@ -109,9 +109,9 @@ const DidStackNavigator = () => {
                             fontSize: 18,
                         },
                     })}
-                    />
-                    <DidStack.Screen 
-                    name="FinishCreateDidScreen" 
+                />
+                <DidStack.Screen
+                    name="FinishCreateDidScreen"
                     component={FinishCreateDidScreen}
                     options={({ navigation }) => ({
                         headerStyle: styles.headerStyle,
@@ -121,8 +121,9 @@ const DidStackNavigator = () => {
                         headerTitleStyle: {
                             fontSize: 18,
                         },
+                        headerLeft: null,
                     })}
-                    />
+                />
             </DidStack.Navigator>
         </NavigationContainer>
     );

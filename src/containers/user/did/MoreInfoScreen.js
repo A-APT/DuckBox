@@ -22,49 +22,51 @@ const MoreInfoScreen = () => {
 
     let pwdReg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     let duplication = ["사과", "편의점", "apple"];
-    let departmentList = ["컴퓨터공학부", "소프트웨어학과"];
+    let departmentList = ["컴퓨터공학부", "소프트웨어학과", "software"];
 
     const checkDuplication = () => {
-        duplication.map((item) =>{
-            if(item === nickname){
-                setCorrectNickname(false);
-                return;
+        let flag = false;
+        duplication.map((item) => {
+            if (item === nickname) {
+                flag = false;
+                return false;
             }
-            setCorrectNickname(true);
+            flag = true;
         });
+        return flag;
     };
 
     const checkDepartmentList = () => {
-        departmentList.map((item) =>{
-            if(item === department){
-                setCorrectDepartment(true);
-                return;
+        let flag = false;
+        departmentList.map((item) => {
+            if (item === department) {
+                flag = true;
+                return false;
             }
-            setCorrectDepartment(false);
         });
+        return flag;
     };
 
-    const onCheckAvailablity = (e) =>{
-        if(pwdReg.test(password)){
-            if(password === rePassword){
-                checkDuplication();
-                checkDepartmentList();
-                if(isCorrectNickname&&isCorrectDepartment){
+    const onCheckAvailablity = (e) => {
+        if (pwdReg.test(password)) {
+            if (password === rePassword) {
+                setCorrectNickname(checkDuplication());
+                setCorrectDepartment(checkDepartmentList());
+                if (checkDuplication() && checkDepartmentList()) {
                     navigateTo.navigate("FinishCreateDidScreen");
                 }
-            }else{
+            } else {
                 setCorrectRePassword(false);
             }
-        }else{
+        } else {
             setCorrectPassword(false);
         }
     };
-
     return (
         <>
             <ScrollView style={styles.container}>
                 <TitleText text1={"마지막 단계입니다"} text2={"추가 정보를 입력해주세요"} />
-                <Text style={styles.font2}>비밀번호</Text>
+                <Text style={styles.font1}>비밀번호</Text>
                 <PasswordBox playsholder={"입력해주세요."} text={password} setText={setPassword} isCorrect={isCorrectPassword} setCorrect={setCorrectPassword} warningText={"8자 이상/ 하나 이상의 문자,숫자, 특수문자 포함 필요"} />
                 <Text style={styles.font1}>비밀번호 확인</Text>
                 <PasswordBox playsholder={"입력해주세요."} text={rePassword} setText={setRePassword} isCorrect={isCorrectRePassword} setCorrect={setCorrectRePassword} warningText={"비밀번호가 일치하지 않습니다."} />
@@ -73,7 +75,7 @@ const MoreInfoScreen = () => {
                 <Text style={styles.font1}>학과</Text>
                 <InputBox playsholder={"입력해주세요."} text={department} setText={setDepartment} isCorrect={isCorrectDepartment} setCorrect={setCorrectDepartment} warningText={"정확한 학과명을 입력해야합니다."} />
             </ScrollView>
-            <View style={password&&rePassword&&nickname&&department ? styles.buttonContainer : styles.pressButtonContainer}
+            <View style={password && rePassword && nickname && department ? styles.buttonContainer : styles.pressButtonContainer}
                 onTouchEnd={() => { onCheckAvailablity() }}>
                 <Text style={styles.buttonFont}>완료</Text>
             </View>
@@ -94,14 +96,8 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: type.Roboto_Regular,
         color: colors.black,
-        marginTop: 18,
         marginBottom: 8,
-    },
-    font2: {
-        fontSize: 14,
-        fontFamily: type.Roboto_Regular,
-        color: colors.black,
-        marginBottom: 8,
+        marginTop: 2,
     },
     buttonContainer: {
         height: 66,

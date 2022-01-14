@@ -19,7 +19,7 @@ function InputBox({ playsholder, text, setText, isCorrect, setCorrect, warningTe
                 onChangeText={onEmailChange}
                 value={text}
             />
-            {isCorrect ? null : <Text style={styles.container2}>{warningText}</Text>}
+            {isCorrect ? <Text style={styles.container2}></Text> : <Text style={styles.container2}>{warningText}</Text>}
         </>
     );
 }
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: colors.main2,
         fontFamily: type.Roboto_Regular,
+        marginTop: 4,
     }
 });
 

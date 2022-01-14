@@ -4,7 +4,7 @@ import colors from '../../../theme/Colors';
 import {type} from '../../../theme/Fonts';
 import InputBox from '../../common/InputBox';
 import TitleText from '../../common/TitleText';
-import TextButton from '../../common/TextButton';
+import SubButton from '../../common/SubButton';
 import BottomButton from '../../common/BottomButton';
 
 const EmailCodeScreen = () => {
@@ -33,7 +33,7 @@ const EmailCodeScreen = () => {
                 <InputBox playsholder={"인증코드를 입력해주세요"} text={code} setText={setCode} isCorrect={isCorrect} setCorrect={setCorrect} warningText={"올바르지 않은 코드입니다."}/>
                 <View style={styles.container2}>
                     <Text style={styles.font3}>인증코드를 받지 못하셨나요?</Text>
-                    <TextButton text="인증코드 재전송" doFunction={ doFunction }/>
+                    <SubButton text="인증코드 재전송" doFunction={ doFunction }/>
                 </View>
             </ScrollView>
             <BottomButton text="제출" moveTo="CheckStudentCardScreen" available={code} checkVariable={code} reg={reg} setCorrect={setCorrect}/>
