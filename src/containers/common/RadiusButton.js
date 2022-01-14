@@ -5,18 +5,12 @@ import { useNavigation } from '@react-navigation/native';
 import colors from '../../theme/Colors';
 import { type } from '../../theme/Fonts';
 
-function BottomButton({ text, moveTo, available, checkVariable, reg, setCorrect }) {
+function RadiusButton({ text, moveTo }) {
     const navigateTo = useNavigation();
-    const onCheckAvailablity = (e) => {
-        if(reg === checkVariable)
-            navigateTo.navigate(moveTo);
-        else
-            setCorrect(false);
-    };
 
     return (
-        <View style={available? styles.container: styles.container2}
-            onTouchEnd={() => { onCheckAvailablity() }}>
+        <View style={styles.container}
+            onTouchEnd={() => { navigateTo.navigate(moveTo); }}>
             <Text style={ styles.font1}>{text}</Text>
         </View>
     );
@@ -24,16 +18,12 @@ function BottomButton({ text, moveTo, available, checkVariable, reg, setCorrect 
 
 const styles = StyleSheet.create({
     container: {
-        height: 66,
+        height: 52,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: colors.main,
-    },
-    container2: {
-        height: 66,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: colors.darkGray,
+        borderRadius: 30,
+        marginTop: 72,
     },
     font1: {
         fontSize: 18,
@@ -42,4 +32,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default BottomButton;
+export default RadiusButton;

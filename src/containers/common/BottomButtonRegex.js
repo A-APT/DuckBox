@@ -5,10 +5,10 @@ import { useNavigation } from '@react-navigation/native';
 import colors from '../../theme/Colors';
 import { type } from '../../theme/Fonts';
 
-function BottomButton({ text, moveTo, available, checkVariable, reg, setCorrect }) {
+function BottomButtonRegex({ text, moveTo, available, checkVariable, reg, setCorrect }) {
     const navigateTo = useNavigation();
     const onCheckAvailablity = (e) => {
-        if(reg === checkVariable)
+        if(reg.test(checkVariable))
             navigateTo.navigate(moveTo);
         else
             setCorrect(false);
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default BottomButton;
+export default BottomButtonRegex;

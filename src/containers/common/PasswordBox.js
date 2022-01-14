@@ -4,7 +4,7 @@ import { TextInput, StyleSheet, Text } from 'react-native';
 import colors from '../../theme/Colors';
 import { type } from '../../theme/Fonts';
 
-function InputBox({ playsholder, text, setText, isCorrect, setCorrect, warningText }) {
+function PasswordBox({ playsholder, text, setText, isCorrect, setCorrect, warningText }) {
     const onEmailChange = (e) => {
         setCorrect(true);
         setText(e)
@@ -13,6 +13,7 @@ function InputBox({ playsholder, text, setText, isCorrect, setCorrect, warningTe
     return (
         <>
             <TextInput
+                secureTextEntry={true}
                 style={styles.container}
                 placeholder={playsholder}
                 placeholderTextColor={colors.darkGray}
@@ -43,4 +44,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default InputBox;
+export default PasswordBox;

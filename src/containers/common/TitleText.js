@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import colors from '../../theme/Colors';
+import {type} from '../../theme/Fonts';
 
 function TitleText({ text1, text2}) {
     return (
@@ -19,8 +20,8 @@ const styles = StyleSheet.create({
     },
     font1: {
         fontSize: 30,
-        fontWeight: '900',
         color: colors.black,
+        fontFamily: type.Roboto_Bold,
     },
 });
 
