@@ -7,7 +7,6 @@ const GroupDetailVoteScreen = () => {
     return (
         <>
             <ScrollView style={styles.container}>
-                <Text>투표 탭</Text>
                 <ContentListBox/>
             </ScrollView>
         </>

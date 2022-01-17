@@ -1,34 +1,52 @@
-import React from 'react';
-import { StyleSheet, Text, ImageBackground, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, ImageBackground, View, Image, TouchableOpacity } from 'react-native';
 import colors from '../../../theme/Colors';
-import {type} from '../../../theme/Fonts';
+import { type } from '../../../theme/Fonts';
 import Radius10Button from '../../common/Radius10Button';
 import GroupDetailTabNavigator from '../../../navigation/tab/GroupDetailTabNavigator';
 
 const GroupDetailScreen = () => {
+    const [isMember, setIsMember] = useState(true);
+
     return (
         <>
             <ImageBackground
                 style={styles.image}
                 source={require('../../../asset/image/konkuk.jpg')}>
-                <ImageBackground 
+                <ImageBackground
                     style={styles.image}
                     source={require('../../../asset/image/black50.png')}>
                     <View style={styles.topContainer}>
-                        <Image source={require('../../../asset/icon/backWhite.png')}/>
-                        <Image style={styles.icon} source={require('../../../asset/icon/setting.png')}/>
+                        <Image source={require('../../../asset/icon/backWhite.png')} />
+                        <View style={{flexDirection: 'row'}}>
+                            {isMember? <Image style={styles.icon} source={require('../../../asset/icon/userAdd.png')} />: null}     
+                            <Image style={styles.icon} source={require('../../../asset/icon/setting.png')} />
+                        </View>
                     </View>
                     <View style={styles.textContainer}>
                         <Text style={styles.font1}>KU 총학생회</Text>
                         <Text style={styles.font2}>2022 건국대학교 총학생회입니다.</Text>
                         <Text style={styles.font3}>그룹원 2,752</Text>
+                        {isMember? null:
                         <View style={styles.buttonContainer}>
-                            <Radius10Button text={"그룹 가입하기"} moveTo={'HomeScreen'}/>
+                            <Radius10Button text={"그룹 가입하기"} moveTo={'HomeScreen'} />
                         </View>
+                        }
                     </View>
                 </ImageBackground>
             </ImageBackground>
-            <GroupDetailTabNavigator/>
+            <GroupDetailTabNavigator />
+            {isMember? 
+            <TouchableOpacity
+                activeOpacity={0.5}
+                style={styles.createContainer}>
+                <Image
+                    source={require('../../../asset/icon/create.png')}
+                    style={styles.createButton}
+                />
+            </TouchableOpacity>
+            : null
+            }
         </>
     );
 };
@@ -37,42 +55,53 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         paddingHorizontal: 30,
     },
-    topContainer:{
+    topContainer: {
         justifyContent: 'space-between',
         flexDirection: 'row',
         padding: 20,
         alignItems: 'center',
     },
-    textContainer:{
+    textContainer: {
         padding: 25,
     },
-    buttonContainer:{
+    buttonContainer: {
         alignItems: 'flex-end',
     },
-    image:{
+    createContainer: {
+        position: 'absolute',
+        right: 20,
+        bottom: 30,
+    },
+    image: {
         resizeMode: 'cover',
     },
-    icon:{
+    icon: {
         resizeMode: 'contain',
         width: 28,
         height: 28,
+        marginLeft: 16,
     },
-    font1:{
+    font1: {
         fontFamily: type.Roboto_Bold,
         fontSize: 26,
         color: colors.white,
     },
-    font2:{
+    font2: {
         fontFamily: type.Roboto_Medium,
         fontSize: 18,
         color: colors.white,
     },
-    font3:{
+    font3: {
         fontFamily: type.Roboto_Medium,
         fontSize: 16,
         color: colors.white,
         marginTop: 24,
-    }
+    },
+    createButton: {
+        resizeMode: 'contain',
+        width: 70,
+        height: 70,
+    },
 });
 
 export default GroupDetailScreen;

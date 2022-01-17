@@ -13,7 +13,7 @@ const GroupDetailTabNavigator = () => {
     return (
         <Tab.Navigator
             screenOptions={{
-                tabBarLabelStyle: { fontSize: 14, fontFamily:type.Roboto_Medium },
+                tabBarLabelStyle: { fontSize: 16, fontFamily:type.Roboto_Medium },
                 tabBarActiveTintColor: Colors.main,
                 tabBarInactiveTintColor: Colors.darkGray,
             }}>
