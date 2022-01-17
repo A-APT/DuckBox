@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../../containers/home/HomeScreen';
 import DidStackNavigator from './DidStackNavigator';
 import GroupDetailStackNavigator from './GroupDetailStackNavigator';
-
 const MainStack = createStackNavigator();
 
 const MainStackNavigator = () => {
