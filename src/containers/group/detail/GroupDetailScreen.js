@@ -1,16 +1,12 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { useNavigation } from '@react-navigation/native';
 
-const HomeScreen = () => {
-    const navigateTo = useNavigation();
-
+const GroupDetailScreen = () => {
     return (
         <>
             <ScrollView style={styles.container}>
-                <Text onTouchEnd={() => { navigateTo.navigate("DidStackNavigator"); }}>회원가입</Text>
-                <Text onTouchEnd={() => { navigateTo.navigate("GroupDetailStackNavigator"); }}>그룹 상세화면</Text>
+                <Text>그룹 상세</Text>
             </ScrollView>
         </>
 
@@ -23,4 +19,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default GroupDetailScreen;

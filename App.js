@@ -1,10 +1,10 @@
 import React from 'react';
-import DidStackNavigator from './src/navigation/stack/DidStackNavigator';
+import MainStackNavigator from './src/navigation/stack/MainStackNavigator';
 
 function App() {
     return (
         <>
-            <DidStackNavigator />
+            <MainStackNavigator />
         </>
     );
 }
