@@ -4,6 +4,7 @@ import colors from '../../../theme/Colors';
 import { type } from '../../../theme/Fonts';
 import Radius10Button from '../../common/Radius10Button';
 import GroupDetailTabNavigator from '../../../navigation/tab/GroupDetailTabNavigator';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const GroupDetailScreen = () => {
     const [isMember, setIsMember] = useState(true);

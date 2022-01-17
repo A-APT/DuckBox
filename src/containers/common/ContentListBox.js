@@ -3,28 +3,31 @@ import { StyleSheet, Text, View, Image, } from 'react-native';
 import Colors from '../../theme/Colors';
 import { type } from '../../theme/Fonts';
 
-const ContentListBox = () => {
+const ContentListBox = ({ type, data, isOpen }) => {
     return (
-        <View style={styles.container}>
-            <Image style={styles.image} source={require('../../asset/image/konkukVote.jpg')}/>
+        <View style={isOpen? styles.container: styles.closedContainer}>
+            <Image style={styles.image} source={require('../../asset/image/konkukVote.jpg')} />
             <View style={styles.textContainer}>
-                <Text style={styles.font1}>건국대학교 제47회 공과대학 학생회 투표</Text>
+                <Text style={styles.font1}>{data.title}</Text>
                 <View style={styles.imageTextContainer}>
-                    <Image style={styles.icon} source={require('../../asset/icon/user.png')}/>
-                    <Text style={styles.font2}>KU 총학생회</Text>
+                    <Image style={styles.icon} source={require('../../asset/icon/user.png')} />
+                    <Text style={styles.font2}>{data.group}</Text>
                 </View>
-                <View style={{alignItems: 'flex-end', marginTop: 16,}}>
+                <View style={{ alignItems: 'flex-end', marginTop: 16, }}>
                     <View style={styles.imageTextContainer}>
-                        <Image style={styles.icon} source={require('../../asset/icon/time.png')}/>
-                        <Text style={styles.font3}>3일 06:13:05 남음</Text>
+                        <Image style={styles.icon} source={require('../../asset/icon/time.png')} />
+                        {isOpen? <Text style={styles.font3}>{data.date} 남음</Text> : <Text style={styles.font3}>종료되었습니다</Text>}
                     </View>
                 </View>
                 <View style={styles.tagTextContainer}>
-                    <Text style={styles.voteBox}>투표</Text>
-                    <View style={{flexDirection: 'row'}}>
+                    {type ?
+                        <Text style={styles.voteBox}>투표</Text>
+                        : <Text style={styles.surveyBox}>설문</Text>
+                    }
+                    <View style={{ flexDirection: 'row' }}>
                         <Text style={styles.font2}>참여율 </Text>
-                        <Text style={styles.font4}>20.36%</Text>
-                        <Text style={styles.font2}> (851명)</Text>
+                        <Text style={styles.font4}>{data.ratio}%</Text>
+                        <Text style={styles.font2}> ({data.numOfPeople}명)</Text>
                     </View>
                 </View>
             </View>
@@ -32,62 +35,77 @@ const ContentListBox = () => {
     );
 };
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flexDirection: 'row',
         paddingHorizontal: 15,
         paddingVertical: 22,
-
         borderColor: Colors.gray2,
-        borderTopWidth: 1,
         borderBottomWidth: 1,
     },
-    textContainer:{
-        paddingLeft: 10,
+    closedContainer: {
+        flexDirection: 'row',
+        paddingHorizontal: 15,
+        paddingVertical: 22,
+        borderColor: Colors.gray2,
+        borderBottomWidth: 1,
+        backgroundColor: Colors.gray,
     },
-    imageTextContainer:{
+    textContainer: {
+        paddingLeft: 10,
+        flex: 1
+    },
+    imageTextContainer: {
         flexDirection: 'row',
         alignItems: 'center',
     },
-    tagTextContainer:{
+    tagTextContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'baseline',
     },
-    image:{
+    image: {
         resizeMode: 'cover',
         width: 100,
         height: 100,
         borderRadius: 10,
     },
-    font1:{
+    font1: {
         color: Colors.black,
         fontFamily: type.Roboto_Regular,
         fontSize: 16,
     },
-    font2:{
+    font2: {
         color: Colors.black,
         fontFamily: type.Roboto_Regular,
         fontSize: 14,
     },
-    font3:{
+    font3: {
         color: Colors.darkGray,
         fontFamily: type.Roboto_Regular,
         fontSize: 14,
     },
-    font4:{
+    font4: {
         color: Colors.main,
         fontFamily: type.Roboto_Regular,
         fontSize: 14,
     },
-    icon:{
+    icon: {
         resizeMode: 'contain',
         width: 14,
         height: 14,
         marginRight: 4,
     },
-    voteBox:{
+    voteBox: {
         backgroundColor: Colors.sub4,
-        paddingHorizontal:6,
+        paddingHorizontal: 6,
+        paddingVertical: 4,
+        fontFamily: type.Roboto_Bold,
+        borderRadius: 4,
+        fontSize: 12,
+    },
+    surveyBox: {
+        backgroundColor: Colors.sub2,
+        paddingHorizontal: 6,
         paddingVertical: 4,
         fontFamily: type.Roboto_Bold,
         borderRadius: 4,
