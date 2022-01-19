@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../../containers/home/HomeScreen';
 import DidStackNavigator from './DidStackNavigator';
 import GroupDetailStackNavigator from './GroupDetailStackNavigator';
+import VoteStackNavigator from './VoteStackNavigator';
 const MainStack = createStackNavigator();
 
 const MainStackNavigator = () => {
@@ -23,6 +24,10 @@ const MainStackNavigator = () => {
                 <MainStack.Screen
                     name="GroupDetailStackNavigator"
                     component={GroupDetailStackNavigator}
+                />
+                <MainStack.Screen
+                    name="VoteStackNavigator"
+                    component={VoteStackNavigator}
                 />
             </MainStack.Navigator>
         </NavigationContainer>
