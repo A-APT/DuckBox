@@ -11,6 +11,7 @@ const HomeScreen = () => {
             <ScrollView style={styles.container}>
                 <Text onTouchEnd={() => { navigateTo.navigate("DidStackNavigator"); }}>회원가입</Text>
                 <Text onTouchEnd={() => { navigateTo.navigate("GroupDetailStackNavigator"); }}>그룹 상세화면</Text>
+                <Text onTouchEnd={()=> {navigateTo.navigate("VoteStackNavigator");}}>투표 생성화면</Text>
             </ScrollView>
         </>
 
