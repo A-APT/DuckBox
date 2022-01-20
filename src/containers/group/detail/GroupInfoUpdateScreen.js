@@ -28,7 +28,7 @@ const GroupInfoUpdateScreen = () => {
                         source={require('../../../asset/image/black50.png')}>
                         <View style={styles.topContainer}>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Image onTouchEnd={() => { navigateTo.goBack() }} source={require('../../../asset/icon/backWhite.png')} />
+                                <Image style={styles.backBtn} onTouchEnd={() => { navigateTo.goBack() }} source={require('../../../asset/icon/backWhite.png')} />
                                 <Text style={styles.font1}>그룹 정보 수정</Text>
                             </View>
                             <Text style={styles.font1}>완료</Text>
@@ -108,6 +108,9 @@ const styles = StyleSheet.create({
         color: colors.black,
         marginBottom: 6,
     },
+    backBtn:{
+        padding: 4,
+    }
 });
 
 export default GroupInfoUpdateScreen;

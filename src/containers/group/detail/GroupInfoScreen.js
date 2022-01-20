@@ -29,7 +29,7 @@ const GroupInfoScreen = () => {
                         source={require('../../../asset/image/black50.png')}>
                         <View style={styles.topContainer}>
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Image onTouchEnd={() => { navigateTo.goBack() }} source={require('../../../asset/icon/backWhite.png')} />
+                                <Image style={styles.backBtn} onTouchEnd={() => { navigateTo.goBack() }} source={require('../../../asset/icon/backWhite.png')} />
                                 <Text style={styles.font1}>그룹 정보</Text>
                             </View>
                             {isMaster ? <Image onTouchEnd={() => { navigateTo.navigate("GroupInfoUpdateScreen"); }} style={styles.icon} source={require('../../../asset/icon/pencil.png')} /> : null}
@@ -163,6 +163,9 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: colors.darkGray,
     },
+    backBtn:{
+        padding: 4,
+    }
 });
 
 export default GroupInfoScreen;

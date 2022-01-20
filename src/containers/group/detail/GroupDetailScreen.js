@@ -26,7 +26,7 @@ const GroupDetailScreen = () => {
                     style={styles.image}
                     source={require('../../../asset/image/black50.png')}>
                     <View style={styles.topContainer}>
-                        <Image onTouchEnd={() => { navigateTo.goBack() }} source={require('../../../asset/icon/backWhite.png')} />
+                        <Image style={styles.backBtn} onTouchEnd={() => { navigateTo.goBack() }} source={require('../../../asset/icon/backWhite.png')} />
                         <View style={{ flexDirection: 'row' }}>
                             {isMember ? <Image style={styles.icon} source={require('../../../asset/icon/userAdd.png')} /> : null}
                             <Image onTouchEnd={() => { navigateTo.navigate("GroupInfoScreen"); }} style={styles.icon} source={require('../../../asset/icon/setting.png')} />
@@ -112,6 +112,9 @@ const styles = StyleSheet.create({
         width: 70,
         height: 70,
     },
+    backBtn:{
+        padding: 4,
+    }
 });
 
 export default GroupDetailScreen;
