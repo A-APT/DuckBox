@@ -13,7 +13,6 @@ const GroupInfoScreen = () => {
     const groupData = {
         name: "KU 총학생회",
         introduction: "2022 건국대학교 총학생회입니다.",
-        link: "서비스명.com/afdsftead",
         numOfMember: 2752,
         authentication: true,
     }
@@ -42,13 +41,11 @@ const GroupInfoScreen = () => {
             <View style={styles.textContainer}>
                 <View style={{ marginRight: 28 }}>
                     <Text style={styles.font3}>소개</Text>
-                    <Text style={styles.font3}>링크</Text>
                     <Text style={styles.font3}>그룹원</Text>
                     <Text style={styles.font3}>그룹인증</Text>
                 </View>
                 <View style={{ flex: 1, }}>
                     <Text style={styles.font4}>{groupData.introduction}</Text>
-                    <Text style={styles.font4}>{groupData.link}</Text>
                     <View style={{ justifyContent: 'space-between', flexDirection: 'row', }}>
                         <Text style={styles.font4}>{groupData.numOfMember}</Text>
                         {isMaster ? <SubButton text="그룹원 관리" /> : null}
